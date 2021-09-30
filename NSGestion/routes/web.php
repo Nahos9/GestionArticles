@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Article;
+use App\Models\Role;
+use App\Models\TypeArticle;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('',function(){
     return view('home');
 });
+
+Route::get('/roles',function(){
+
+    return Role::with("users")->get();
+});
+
+Route::get('/typesArticles',function(){
+
+    return TypeArticle::with('articles')->get();
+});
+
+    
+
